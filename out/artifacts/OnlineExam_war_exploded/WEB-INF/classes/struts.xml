@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.action.excludePattern" value="/static/.*?" />
+    <package name="OnlineExam" extends="struts-default">
+        <action name="login" class="Action.LoginAction" method="execute">
+            <result name="success" type="redirect">jsp/home.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="signup" class="Action.SignupAction" method="execute">
+            <result name="success" type="redirect">jsp/home.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="update" class="Action.UpdateAction" method="execute">
+            <result name="success" type="redirect">jsp/home_profile.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="resetPwd" class="Action.ResetPwdAction" method="execute">
+            <result name="success" type="redirect">jsp/home_profile.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="take" class="Action.TakeExamAction" method="execute">
+            <result type="redirect">jsp/takeExam.jsp</result>
+        </action>
+
+        <action name="adminlogin" class="Action.AdminLoginAction" method="execute">
+            <result name="success" type="redirect">jsp/admin_home.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="deleteStudent" class="Action.AdminDeleteAction" method="execute">
+            <result name="success" type="chain">adminStudent</result>
+        </action>
+
+        <action name="adminUpdateRedirect" class="Action.AdminUpdateAction" method="execute">
+            <result name="success" type="redirect">jsp/admin_updateS.jsp</result>
+        </action>
+
+        <action name="adminUpdate" class="Action.UpdateAction" method="execute">
+            <result name="success" type="chain">adminStudent</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminAdd" class="Action.AdminAddAction" method="execute">
+            <result name="success" type="chain">adminStudent</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminStudent" class="Action.AdminStudentAction" method="execute">
+            <result name="success" type="redirect">jsp/admin_student.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminQuestion" class="Action.AdminQuestionAction" method="execute">
+            <result name="success" type="redirect">jsp/admin_QManagement.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminDeleteC" class="Action.AdminDeleteChoice" method="execute">
+            <result name="success" type="chain">adminQuestion</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminDeleteB" class="Action.AdminDeleteBlank" method="execute">
+            <result name="success" type="chain">adminQuestion</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminAddC" class="Action.AdminAddChoice" method="execute">
+            <result name="success" type="chain">adminQuestion</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminAddB" class="Action.AdminAddBlank" method="execute">
+            <result name="success" type="chain">adminQuestion</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminDeletePaper" class="Action.AdminDeletePaper" method="execute">
+            <result name="success" type="redirect">jsp/admin_PManagement.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminUpdatePaper" class="Action.AdminUpdatePaper" method="execute">
+            <result name="success" type="redirect">jsp/admin_PManagement.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminUpdatePChain" class="Action.AdminUpdatePChain" method="execute">
+            <result name="success" type="redirect">jsp/admin_updatePaper.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="adminRandomPaper" class="Action.AdminRandomPaper" method="execute">
+            <result name="success" type="redirect">jsp/admin_PManagement.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="checkPaper" class="Action.CheckPaper" method="execute">
+            <result name="success" type="redirect">jsp/home.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+
+        <action name="levelPaper" class="Action.AdminEasyLevelAnalysis" method="execute">
+
+            <result name="success" type="redirect">jsp/admin_analysis.jsp</result>
+            <result name="error" type="redirect">jsp/error.jsp</result>
+        </action>
+    </package>
+</struts>
